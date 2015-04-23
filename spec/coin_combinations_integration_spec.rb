@@ -9,4 +9,12 @@ describe('Index form', {:type => :feature}) do
     click_button('Send')
     expect(page).to have_content('3 Quarters')
   end
+
+  it('returns alternate change for a limited number of quarters (2 quarters)') do
+    visit('/')
+    fill_in('cents', :with => '80')
+    fill_in('q_limit', :with => '2')
+    click_button('Send')
+    expect(page).to have_content("2 Quarters, 3 Dimes")
+  end
 end

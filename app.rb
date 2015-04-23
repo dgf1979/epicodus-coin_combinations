@@ -9,7 +9,12 @@ get('/') do
 end
 
 get('/change') do
-  @cents = params.fetch('cents').to_i().coin_combinations()
+  @q_limit = params.fetch('q_limit').to_i()
+  if @q_limit > 0
+    @cents = params.fetch('cents').to_i().coin_combinations(@q_limit)
+  else
+    @cents = params.fetch('cents').to_i().coin_combinations()
+  end
 
 
   erb(:change)

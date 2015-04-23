@@ -2,11 +2,11 @@ require('capybara/rspec')
 require('./app')
 Capybara.app = Sinatra::Application
 
-describe('', {:type => :feature}) do
-  it('') do
+describe('Index form', {:type => :feature}) do
+  it('returns the number of a quarter for the given number of cents') do
     visit('/')
-    fill_in('', :with => '')
+    fill_in('cents', :with => '75')
     click_button('Send')
-    expect(page).to have_content('')
+    expect(page).to have_content('3 Quarters')
   end
 end

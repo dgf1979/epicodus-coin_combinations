@@ -1,5 +1,5 @@
 class Fixnum
-  define_method(:coin_combinations) do
+  define_method(:coin_combinations) do |quarter_limit = 99|
     cents = self
     change = []
     quarters = 0
@@ -8,7 +8,7 @@ class Fixnum
     pennies = 0
 
     if cents >= 25
-      until cents < 25
+      until cents < 25 || quarters >= quarter_limit
         quarters += 1
         cents -= 25
       end

@@ -1,0 +1,1 @@
+returns a number of quarters for a given number of cents
